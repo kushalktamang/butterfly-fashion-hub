@@ -1,0 +1,68 @@
+version: "3"
+
+tasks:
+   dev:
+      desc: start all apps in dev the mode
+      deps:
+         - task: dev:web
+         - task: dev:admin
+         - task: dev:server
+
+   dev:web:
+      desc: staring frontend localhost
+      cmds:
+         - cd web && node --run dev
+
+   dev:server:
+      desc: starting backend localhost
+      cmds:
+         - cd server && node --run dev
+
+   dev:admin:
+      desc: starting admin localhost
+      cmds:
+         - cd admin && node --run dev
+
+   fmt:
+      desc: format all packages
+      deps:
+         - task: fmt:web
+         - task: fmt:server
+         - task: fmt:admin
+
+   fmt:web:
+      desc: format web files
+      cmds:
+         - cd web && node --run fmt
+
+   fmt:server:
+      desc: format backend files
+      cmds:
+         - cd server && node --run fmt
+
+   fmt:admin:
+      desc: format backend files
+      cmds:
+         - cd admin && node --run fmt
+
+   lint:
+      desc: lint all the packages
+      cmds:
+         - task: lint:web
+         - task: lint:server
+         - task: lint:admin
+
+   lint:web:
+      desc: linting on the frontend
+      cmds:
+         - cd web && node --run lint
+
+   lint:server:
+      desc: linting on the backend
+      cmds:
+         - cd server && node --run lint
+
+   lint:admin:
+      desc: linting on the backend
+      cmds:
+         - cd admin && node --run lint
