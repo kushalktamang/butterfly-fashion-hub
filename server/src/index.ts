@@ -1,12 +1,11 @@
+import { PORT } from "./config/env.config";
 import createServer from "./server";
-
-const PORT = 8080;
 
 const server = createServer().listen(PORT, () => {
   console.log(`🐼 server ready at: http://localhost:${PORT}`);
 });
 
-async function shutdown(exitCode: number): Promise<void> {
+function shutdown(exitCode: number): Promise<void> {
   process.exit(exitCode);
 }
 
