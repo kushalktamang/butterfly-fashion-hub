@@ -14,7 +14,18 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "noPropertyAccessFromIndexSignature": true,
+    "erasableSyntaxOnly": true,
+    "noErrorTruncation": false,
+    "exactOptionalPropertyTypes": true,
+    "allowJs": true,
+    "checkJs": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

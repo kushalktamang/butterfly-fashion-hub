@@ -1,8 +1,9 @@
+import "dotenv/config";
 import { PORT } from "./config/env.config";
 import createServer from "./server";
 
 const server = createServer().listen(PORT, () => {
-  console.log(`🐼 server ready at: http://localhost:${PORT}`);
+  console.log(`SERVER ready at: http://localhost:${PORT}`);
 });
 
 function shutdown(exitCode: number): Promise<void> {
