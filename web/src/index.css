@@ -33,7 +33,7 @@
 
 @layer components {
   .nav-links {
-    @apply text-charcol sm:flex gap-10 text-xl hidden;
+    @apply text-charcol sm:flex gap-7 text-xl hidden sm:hidden md:flex;
   }
 
   .nav-li {

@@ -3,6 +3,7 @@ import { Search, ShoppingCart } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 import { assets } from "../assets/assets";
+import MobileMenu from "./mobile-menu";
 
 export default function Navbar() {
   const { scrollY } = useScroll();
@@ -27,7 +28,7 @@ export default function Navbar() {
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="sticky top-0 z-50 p-2 bg-cream"
     >
-      <nav className="sticky z-50 p-4 sm:px-6 shadow-sm h-16 flex items-center justify-between text-charcol">
+      <nav className="sticky z-50 p-4 sm:px-6 h-16 flex items-center justify-between text-charcol">
         {/* butterfly fashion hub official logo */}
         <Link to={"/"}>
           <img
@@ -84,6 +85,8 @@ export default function Navbar() {
             </span>
           )}*/}
           </NavLink>
+
+          <MobileMenu />
         </div>
       </nav>
     </motion.div>
