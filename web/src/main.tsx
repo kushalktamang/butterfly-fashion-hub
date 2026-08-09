@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact.tsx";
 import "./index.css";
+import ShopContextProvider from "./context/shop-context-provider.tsx";
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {
@@ -41,7 +42,9 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(rootElement).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  <ShopContextProvider>
+    <StrictMode>
+      <RouterProvider router={router} />
+    </StrictMode>
+  </ShopContextProvider>,
 );

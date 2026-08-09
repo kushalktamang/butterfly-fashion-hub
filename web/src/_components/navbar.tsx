@@ -1,13 +1,34 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Search, ShoppingCart } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
 import MobileMenu from "./mobile-menu";
+import { useShopContext } from "../hooks/use-shop-context";
 
 export default function Navbar() {
+  const { getCartCount, setShowSearch } = useShopContext();
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const cartCount = getCartCount();
+
+  useEffect(() => {
+    if (location.pathname !== "/collection") {
+      setShowSearch(false);
+    }
+  }, [location.pathname, setShowSearch]);
+
+  const handleSearchClick = async () => {
+    if (location.pathname === "/collection") {
+      setShowSearch((prev) => !prev);
+      return;
+    }
+
+    setShowSearch(true);
+    await navigate("/collection");
+  };
 
   useMotionValueEvent(scrollY, "change", (current) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -32,7 +53,7 @@ export default function Navbar() {
         {/* butterfly fashion hub official logo */}
         <Link to={"/"}>
           <img
-            src={assets.logo}
+            src={assets.butterfly_logo}
             alt="butterfly fashion hub logo"
             aria-label="butterfly fashion hub logo"
             className="w-40 cursor-pointer"
@@ -73,17 +94,17 @@ export default function Navbar() {
             className="icons"
             role="button"
             aria-label="for searching products"
-            // onClick={handleSearchClick}
+            onClick={void handleSearchClick}
           />
 
           {/* cart icons for the page cart */}
           <NavLink to={"/cart"} className="relative">
             <ShoppingCart className="icons" role="button" aria-label="cart items" />
-            {/*{cartCount > 0 && (
-            <span className="absolute -top-1.5 -right-2 min-w-5 h-5 px-1 rounded-full bg-pink-500 text-white text-[11px] leading-5 text-center font-semibold">
-              {cartCount > 99 ? "99+" : cartCount}
-            </span>
-          )}*/}
+            {cartCount > 0 && (
+              <span className="absolute -top-1.5 -right-2 min-w-5 h-5 px-1 rounded-full bg-pink-500 text-white text-[11px] leading-5 text-center font-semibold">
+                {cartCount > 99 ? "99+" : cartCount}
+              </span>
+            )}
           </NavLink>
 
           <MobileMenu />

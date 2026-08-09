@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./_components/navbar";
-import Footer from "./_components/footer";
+import FooterSection from "./_components/footer";
 import { useEffect } from "react";
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
     <div>
       <Navbar />
       <Outlet />
-      <Footer />
+      <FooterSection />
     </div>
   );
 }
