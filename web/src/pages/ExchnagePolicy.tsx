@@ -25,7 +25,9 @@ const ExchangePolicy = () => {
           </p>
 
           {/* Damaged Products Section */}
-          <h2 className="text-3xl font-semibold mb-2 underline text-center">Damaged or Faulty Products</h2>
+          <h2 className="text-3xl font-semibold mb-2 underline text-center">
+            Damaged or Faulty Products
+          </h2>
           <p className="mb-4">
             Butterfly will replace any damaged or faulty products if customers contact us within 2-3
             days of purchase. However, any damage caused by the customer will not be accepted for

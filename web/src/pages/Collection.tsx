@@ -32,9 +32,7 @@ const Collection: React.FC = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const defaultCategory = params.get("category");
-  const [category, setCategory] = useState<string[]>(
-    defaultCategory ? [defaultCategory] : [],
-  );
+  const [category, setCategory] = useState<string[]>(defaultCategory ? [defaultCategory] : []);
   const [showFilter, setShowFilter] = useState<boolean>(!!defaultCategory);
 
   // categories toggle option
@@ -64,15 +62,11 @@ const Collection: React.FC = () => {
     }
 
     if (category.length > 0) {
-      productCopy = productCopy.filter((item) =>
-        category.includes(item.category),
-      );
+      productCopy = productCopy.filter((item) => category.includes(item.category));
     }
 
     if (subCategory.length > 0) {
-      productCopy = productCopy.filter((item) =>
-        subCategory.includes(item.subCategory),
-      );
+      productCopy = productCopy.filter((item) => subCategory.includes(item.subCategory));
     }
 
     if (sortOption === "low-high") {
