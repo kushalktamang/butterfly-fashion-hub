@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./_components/navbar";
 import FooterSection from "./_components/footer";
 import { useEffect } from "react";
+import SearchBar from "./_components/searchbar";
 
 export default function App() {
   const location = useLocation();
@@ -14,6 +15,7 @@ export default function App() {
   return (
     <div>
       <Navbar />
+      <SearchBar />
       <Outlet />
       <FooterSection />
     </div>

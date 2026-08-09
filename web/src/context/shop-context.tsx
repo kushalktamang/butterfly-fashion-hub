@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import type { Product } from "../assets/assets";
+import type { CartItems } from "./shop-context-provider";
 
 export interface ShopContextType {
   currency: string;
@@ -11,8 +12,8 @@ export interface ShopContextType {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   showSearch: boolean;
   setShowSearch: React.Dispatch<React.SetStateAction<boolean>>;
-  cartItems: Record<string, Record<string, number>>;
-  setCartItems: React.Dispatch<React.SetStateAction<Record<string, Record<string, number>>>>;
+  cartItems: CartItems;
+  setCartItems: React.Dispatch<React.SetStateAction<CartItems>>;
   addToCart: (itemId: string, size: string, quantity?: number) => Promise<void>;
   getCartCount: () => number;
   updateQuantity: (itemId: string, size: string, quantity: number) => Promise<void>;

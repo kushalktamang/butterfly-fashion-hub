@@ -36,12 +36,15 @@ const PlaceOrder = () => {
     try {
       const orderItem = [];
       for (const items in cartItems) {
-        for (const item in cartItems[items]) {
-          if (cartItems[items][item] > 0) {
+        const sizeQuantities = cartItems[items];
+        if (!sizeQuantities) continue;
+        for (const item in sizeQuantities) {
+          const qty = sizeQuantities[item];
+          if (qty !== undefined && qty > 0) {
             const itemInfo = structuredClone(products.find((product) => product._id === items));
             if (itemInfo) {
               itemInfo.sizes = [item as "S" | "M" | "L" | "XL" | "XXL" | "XXXL"];
-              itemInfo.quantity = cartItems[items][item];
+              itemInfo.quantity = qty;
               orderItem.push(itemInfo);
             }
           }

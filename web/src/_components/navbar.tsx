@@ -25,14 +25,12 @@ export default function Navbar() {
       setShowSearch((prev) => !prev);
       return;
     }
-
     setShowSearch(true);
     await navigate("/collection");
   };
 
   useMotionValueEvent(scrollY, "change", (current) => {
     const previous = scrollY.getPrevious() ?? 0;
-    console.log({ current, previous });
     if (current > previous && current > 150) {
       setHidden(true);
     } else {
@@ -94,7 +92,7 @@ export default function Navbar() {
             className="icons"
             role="button"
             aria-label="for searching products"
-            onClick={void handleSearchClick}
+            onClick={() => void handleSearchClick()}
           />
 
           {/* cart icons for the page cart */}

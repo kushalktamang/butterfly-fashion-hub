@@ -60,25 +60,25 @@ const ShopContextProvider = ({ children }: ShopContextProps) => {
   const getCartCount = () => {
     let totalCount = 0;
     for (const items in cartItems) {
-      for (const item in cartItems[items]) {
-        try {
-          if (cartItems[items][item] > 0) {
-            totalCount += cartItems[items][item];
-          }
-        } catch (error) {
-          console.error(error);
+      const sizeQuantities = cartItems[items];
+      if (!sizeQuantities) continue;
+      for (const item in sizeQuantities) {
+        const qty = sizeQuantities[item];
+        if (qty !== undefined && qty > 0) {
+          totalCount += qty;
         }
       }
     }
-
     return totalCount;
   };
 
   // updating quantity
   const updateQuantity = (itemId: string, size: string, quantity?: number): Promise<void> => {
     const cartData = structuredClone(cartItems);
-    if (!(itemId in cartData)) return Promise.resolve();
-    cartData[itemId][size] = quantity ?? 0;
+    const sizeQuantities = cartData[itemId];
+    if (!sizeQuantities) return Promise.resolve();
+    sizeQuantities[size] = quantity ?? 0;
+    cartData[itemId] = sizeQuantities;
     setCartItems(cartData);
     return Promise.resolve();
   };
@@ -92,9 +92,12 @@ const ShopContextProvider = ({ children }: ShopContextProps) => {
 
       if (!itemInfo) continue; // Skip if product not found
 
-      for (const size in cartItems[productId]) {
-        const quantity = cartItems[productId][size];
-        if (quantity > 0) {
+      const sizeQuantities = cartItems[productId];
+      if (!sizeQuantities) continue;
+
+      for (const size in sizeQuantities) {
+        const quantity = sizeQuantities[size];
+        if (quantity !== undefined && quantity > 0) {
           totalAmount += itemInfo.price * quantity;
         }
       }

@@ -11,8 +11,8 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="bg-white border-b border-pink-100 px-4 sm:px-8 py-3">
-      <div className="max-w-3xl mx-auto flex items-center gap-2 bg-amber-50 border border-pink-200 rounded-full px-3 sm:px-4 py-2">
+    <div className="bg-cream border-pink-100 px-4 sm:px-8 py-3">
+      <div className="max-w-3xl mx-auto flex items-center gap-2 bg-white border border-pink-200 rounded-full px-3 sm:px-4 py-2">
         <TbSearch className="w-5 h-5 text-pink-500 shrink-0" />
         <input
           type="text"

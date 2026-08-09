@@ -12,18 +12,22 @@ const Cart = () => {
   const cartData = useMemo(() => {
     const tempData = [];
     for (const items in cartItems) {
-      for (const item in cartItems[items]) {
-        if (cartItems[items][item] > 0) {
+      const sizeQuantities = cartItems[items];
+      if (!sizeQuantities) continue;
+      for (const item in sizeQuantities) {
+        const qty = sizeQuantities[item];
+        if (qty !== undefined && qty > 0) {
           tempData.push({
             _id: items,
             sizes: item,
-            quantity: cartItems[items][item],
+            quantity: qty,
           });
         }
       }
     }
     return tempData;
   }, [cartItems]);
+
   return (
     <>
       <div className="pt-14 px-10 pb-[30vh]">

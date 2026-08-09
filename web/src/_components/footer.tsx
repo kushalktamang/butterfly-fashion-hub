@@ -73,6 +73,16 @@ const FooterSection = () => {
               >
                 <li>Exchange Policy</li>
               </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  `text-md underline hover:text-[#f268bd] text-cream ${
+                    isActive ? " text-cream font-semibold" : "text-cream"
+                  }`
+                }
+                to="/contact-us"
+              >
+                <li>Contact Us</li>
+              </NavLink>
             </ul>
           </div>
 
