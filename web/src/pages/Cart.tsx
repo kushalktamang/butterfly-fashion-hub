@@ -34,9 +34,7 @@ const Cart = () => {
         {/* ---------- product entries------------ */}
         <div>
           {cartData.map((item) => {
-            const productData = products.find(
-              (product) => product._id === item._id,
-            );
+            const productData = products.find((product) => product._id === item._id);
             if (!productData) return null;
             return (
               <div
@@ -44,15 +42,9 @@ const Cart = () => {
                 className="py-4 border-b border-t border-t-fuchsia-400 border-b-fuchsia-400 text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
               >
                 <div className="flex items-start gap-6">
-                  <img
-                    src={productData.image[0]}
-                    alt="productimage"
-                    className="w-16 sm:w-20"
-                  />
+                  <img src={productData.image[0]} alt="productimage" className="w-16 sm:w-20" />
                   <div>
-                    <p className="text-xs sm:text-lg font-medium">
-                      {productData.name}
-                    </p>
+                    <p className="text-xs sm:text-lg font-medium">{productData.name}</p>
                     <div className="flex items-center gap-5 mt-2 ">
                       <p>
                         {currency}
@@ -66,13 +58,8 @@ const Cart = () => {
                 </div>
                 <input
                   onChange={(e) => {
-                    if (e.target.value === " " || e.target.value === "0")
-                      return;
-                    void updateQuantity(
-                      item._id,
-                      item.sizes,
-                      Number(e.target.value),
-                    );
+                    if (e.target.value === " " || e.target.value === "0") return;
+                    void updateQuantity(item._id, item.sizes, Number(e.target.value));
                   }}
                   type="number"
                   min={1}
@@ -99,9 +86,7 @@ const Cart = () => {
                 }}
                 disabled={cartData.length === 0}
                 className={`text-white text-sm my-8 px-8 py-3 rounded-4xl ${
-                  cartData.length === 0
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-charcol"
+                  cartData.length === 0 ? "bg-gray-400 cursor-not-allowed" : "bg-charcol"
                 }`}
               >
                 PROCEED TO CHECKOUT

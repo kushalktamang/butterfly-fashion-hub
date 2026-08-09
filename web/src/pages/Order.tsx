@@ -47,13 +47,10 @@ const Order = () => {
 
   const { orderNumber, items, amount, address } = state.orderData;
 
-  const fullName =
-    `${address.firstName ?? ""} ${address.lastName ?? ""}`.trim();
+  const fullName = `${address.firstName ?? ""} ${address.lastName ?? ""}`.trim();
   const displayName = address.name ?? (fullName || "-");
 
-  const addressLine = [address.street, address.city, address.state]
-    .filter(Boolean)
-    .join(", ");
+  const addressLine = [address.street, address.city, address.state].filter(Boolean).join(", ");
 
   return (
     <div className="p-6 max-w-2xl mx-auto">
