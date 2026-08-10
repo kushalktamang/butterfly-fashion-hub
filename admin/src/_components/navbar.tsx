@@ -6,7 +6,7 @@ export interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ setToken }) => {
   return (
-    <div className="flex items-center py-2 px-[4%] justify-between">
+    <div className="flex items-center py-2 px-[4%] justify-between border-b border-pink-100">
       <img src={assets.butterfly_logo} alt="store_logo" className="w-45" />
       <button
         onClick={() => {
