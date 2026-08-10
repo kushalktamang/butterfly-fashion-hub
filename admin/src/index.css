@@ -1,1 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius&display=swap");
 @import "tailwindcss";
+
+:root {
+  --custom-white: #f9f6f0;
+  --custom-black: #1c1917;
+}
+
+@theme inline {
+  --color-cream: var(--custom-white);
+  --color-charcol: var(--custom-black);
+}
+
+@layer base {
+  html {
+    color: var(--custom-black);
+    background: var(--custom-white);
+    font-family: "Delius", cursive;
+    font-weight: 500;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    font-weight: 700;
+  }
+}
