@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import type { NavbarProps } from "./navbar";
-import { useBackendContext } from "../hooks/use-bakend-contexxt";
+import { useBackendContext } from "../hooks/use-bakend-context";
 
 interface AdminLoginResponse {
   success: boolean;
@@ -37,7 +37,7 @@ const AdminLogin: React.FC<NavbarProps> = ({ setToken }) => {
   };
   return (
     <div className="min-h-screen flex items-center justify-center w-full">
-      <div className="bg-white shdow-md rounded-lg px-8 py-6 max-w-md">
+      <div className="bg-cream shdow-md rounded-lg px-8 py-6 max-w-md">
         <h1 className="text-2xl font-bold mb-4 text-center">Admin Panel</h1>
         <form action="" onSubmit={(e) => void onSubmitHandler(e)}>
           <div className="mb-3 min-w-72 ">

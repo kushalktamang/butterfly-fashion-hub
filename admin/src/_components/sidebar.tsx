@@ -3,7 +3,7 @@ import assets from "../assets/assets.ts";
 
 const Sidebar = () => {
   return (
-    <div className="w-[18%] min-h-screen border-r border-pink-100">
+    <div className="w-[18%] min-h-screen border-r border-gray-300">
       <div className="flex flex-col gap-4 pt-6 pl-[20%] text-[15px]">
         {/* -------------for adding items-------------- */}
         <NavLink

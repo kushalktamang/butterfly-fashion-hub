@@ -6,6 +6,8 @@ import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
 import Add from "./pages/Add.tsx";
 import List from "./pages/List.tsx";
 import Orders from "./pages/Orders.tsx";
+import BackendContextProvider from "./context/backend-context-provider.tsx";
+import ErrorPage from "./pages/ErrorPage.tsx";
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {
@@ -16,6 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Navigate to="/add" replace /> },
       { path: "/add", element: <Add /> },
@@ -27,6 +30,8 @@ const router = createBrowserRouter([
 
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BackendContextProvider>
+      <RouterProvider router={router} />
+    </BackendContextProvider>
   </StrictMode>,
 );
