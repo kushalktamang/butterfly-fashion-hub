@@ -1,18 +1,7 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt";
 import { emailRegex } from "../utils/email";
-
-export interface IAdmin {
-  email: string;
-  password: string;
-  role: string;
-}
-
-export interface IAdminDocument extends IAdmin, Document {
-  comparePassword(candidatePassword: string): Promise<boolean>;
-}
-
-export type IAdminModel = Model<IAdminDocument>;
+import { IAdminDocument, IAdminModel } from "../types/schema.types";
 
 const adminSchema = new Schema<IAdminDocument>(
   {

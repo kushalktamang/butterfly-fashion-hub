@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
-import type { OrderDocument } from "../types/order.types";
+import { OrderDocument } from "../types/schema.types";
 
 const orderItemSchema = new Schema(
   {
