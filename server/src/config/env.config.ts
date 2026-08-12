@@ -13,3 +13,6 @@ config({
 export const NODE_ENV: string = process.env["NODE_ENV"] ?? "development";
 export const PORT: string = process.env["PORT"] ?? "8081";
 export const DATABASE_URI: string = process.env["DATABASE_URI"] ?? "";
+export const ADMIN_EMAIL: string = process.env["ADMIN_EMAIL"] ?? "";
+export const ADMIN_PASSWORD: string = process.env["ADMIN_PASSWORD"] ?? "";
+export const JWT_SECRET: string = process.env["JWT_SECRET"] ?? "";

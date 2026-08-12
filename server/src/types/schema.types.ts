@@ -1,5 +1,5 @@
 import type { Document } from "mongoose";
-import { Model } from "mongoose";
+import { Model, Types } from "mongoose";
 
 export interface OrderItem {
   productId: string;
@@ -56,6 +56,7 @@ export interface IAdmin {
 }
 
 export interface IAdminDocument extends IAdmin, Document {
+   _id: Types.ObjectId;
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
 

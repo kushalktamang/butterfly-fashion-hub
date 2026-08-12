@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+
 import bcrypt from "bcrypt";
 import { emailRegex } from "../utils/email";
 import { IAdminDocument, IAdminModel } from "../types/schema.types";
