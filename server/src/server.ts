@@ -2,7 +2,8 @@ import express from "express";
 import type { Express } from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { AdminRouter } from "./routes/admin.routes";
+import { createAdminRouter } from "./routes/admin.routes";
+import { createProductRouter } from "./routes/products.routes";
 
 export default function createServer(): Express {
   const server = express();
@@ -16,8 +17,10 @@ export default function createServer(): Express {
   server.use(cookieParser());
 
   // routes
-  /*  POST api/auth/login */
-  server.use("/api/admin", AdminRouter());
+  /*   api/auth/login */
+  server.use("/api/admin", createAdminRouter());
+  /*   api/products/ */
+  server.use("/api/products", createProductRouter());
 
   return server;
 }
