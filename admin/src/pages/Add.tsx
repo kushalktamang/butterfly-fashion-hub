@@ -151,7 +151,7 @@ const Add: React.FC = () => {
               />
               <input
                 type="file"
-                id={`image ${String(index)}`}
+                id={imageSlotIds[index]}
                 hidden
                 accept="image/*"
                 onChange={(e) => {
