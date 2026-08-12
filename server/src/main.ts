@@ -3,6 +3,7 @@ import type { Server } from "http";
 import { PORT } from "./config/env.config";
 import createServer from "./server";
 import { connectDB, disconnectDB } from "./config/db.config";
+import connectCloudinary from "./config/cloudinary.config";
 
 // disconnect database and then existing the process with the given code
 async function shutdown(exitCode: number): Promise<void> {
@@ -17,12 +18,10 @@ function closeServer(server: Server, exitCode: number): void {
   });
 }
 
-/*
-
-*/
 async function main() {
   // making database conncetion before accepting any request
   await connectDB();
+  connectCloudinary();
 
   const server: Server = createServer().listen(PORT, () => {
     console.log(`SERVER ready at: http://localhost:${PORT}`);
@@ -51,4 +50,7 @@ async function main() {
   });
 }
 
-void main();
+void main().catch((error: unknown) => {
+  console.error("Fatal startup error:", error);
+  process.exit(1);
+});

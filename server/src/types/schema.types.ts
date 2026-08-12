@@ -56,7 +56,7 @@ export interface IAdmin {
 }
 
 export interface IAdminDocument extends IAdmin, Document {
-   _id: Types.ObjectId;
+  _id: Types.ObjectId;
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
 

@@ -45,13 +45,7 @@ const orderSchema = new Schema(
     status: {
       type: String,
       required: true,
-      enum: [
-        "Order is placed",
-        "Shipped",
-        "Out for delivery",
-        "Delivered",
-        "Cancelled",
-      ],
+      enum: ["Order is placed", "Shipped", "Out for delivery", "Delivered", "Cancelled"],
       default: "Order is placed",
     },
     paymentMethod: {
@@ -70,7 +64,7 @@ const orderSchema = new Schema(
     orderNumber: {
       type: String,
       unique: true,
-      default: () => uuidv4().slice(0, 8).toUpperCase(), // makes an id of 8 digits
+      default: () => uuidv4().slice(0, 8).toUpperCase(),
     },
   },
   { timestamps: true },

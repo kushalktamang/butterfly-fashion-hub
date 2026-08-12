@@ -17,17 +17,13 @@ const adminLogin = async (req: TRequest, res: Response): Promise<void> => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      res
-        .status(400)
-        .json({ success: false, message: "Email and password are required" });
+      res.status(400).json({ success: false, message: "Email and password are required" });
       return;
     }
 
     const normalizedEmail = email.trim().toLowerCase();
 
-    let admin = await AdminModel.findOne({ email: normalizedEmail }).select(
-      "+password",
-    );
+    let admin = await AdminModel.findOne({ email: normalizedEmail }).select("+password");
 
     if (!admin) {
       const isEnvAdmin =
@@ -37,9 +33,7 @@ const adminLogin = async (req: TRequest, res: Response): Promise<void> => {
         password === ADMIN_PASSWORD;
 
       if (!isEnvAdmin) {
-        res
-          .status(401)
-          .json({ success: false, message: "Invalid credentials" });
+        res.status(401).json({ success: false, message: "Invalid credentials" });
         return;
       }
 
@@ -75,10 +69,7 @@ const adminLogin = async (req: TRequest, res: Response): Promise<void> => {
     console.error("Login error:", error);
     res.status(500).json({
       success: false,
-      message:
-        error instanceof Error
-          ? `Login failed: ${error.message}`
-          : "Internal server error",
+      message: error instanceof Error ? `Login failed: ${error.message}` : "Internal server error",
     });
   }
 };

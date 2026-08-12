@@ -17,7 +17,7 @@ export default function createServer(): Express {
 
   // routes
   /*  POST api/auth/login */
-  server.use("/api/auth", AdminRouter());
+  server.use("/api/admin", AdminRouter());
 
   return server;
 }
