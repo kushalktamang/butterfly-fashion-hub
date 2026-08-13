@@ -79,9 +79,9 @@ const Collection: React.FC = () => {
   }, [category, subCategory, sortOption, products, search, showSearch]);
 
   return (
-    <div className="flex flex-col sm:flex-col md:flex-row gap-1 sm-gap-10 pt-10 px-4 sm:px-[5vw] md:px-[4vw] lg:px-[4vw]">
+    <div className="flex flex-col sm:flex-col md:flex-row gap-1 sm-gap-10 px-4 sm:px-[5vw] md:px-[4vw] lg:px-[4vw]">
       {/* filter  Option */}
-      <div className="min-w-60 mt-50">
+      <div className="min-w-60 mt-5">
         <p
           onClick={() => {
             setShowFilter(!showFilter);

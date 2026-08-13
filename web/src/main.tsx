@@ -34,11 +34,13 @@ const router = createBrowserRouter([
       { path: "/exchange-policy", element: <ExchangePolicy /> },
       { path: "/contact-us", element: <Contact /> },
       { path: "/cart", element: <Cart /> },
-      { path: "/order", element: <Order /> },
-      { path: "/place-order", element: <PlaceOrder /> },
+      // { path: "/order", element: <Order /> },
+      // { path: "/place-order", element: <PlaceOrder /> },
       { path: "/products/:productId", element: <ProductsRoute /> },
     ],
   },
+  { path: "/order", element: <Order /> },
+  { path: "/place-order", element: <PlaceOrder /> },
 ]);
 
 createRoot(rootElement).render(

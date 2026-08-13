@@ -37,7 +37,7 @@ interface ShopContextProps {
 }
 
 const ShopContextProvider = ({ children }: ShopContextProps) => {
-  const currency = "$";
+  const currency = "रू";
   const delivery_fee = 150;
   const [isProductsLoading, setIsProductsLoading] = useState(true);
   const [search, setSearch] = useState("");
