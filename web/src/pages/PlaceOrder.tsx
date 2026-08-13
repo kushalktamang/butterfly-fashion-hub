@@ -34,18 +34,30 @@ const PlaceOrder = () => {
   const onSubmitHandler = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const orderItem = [];
-      for (const items in cartItems) {
-        const sizeQuantities = cartItems[items];
+      const orderItem: {
+        productId: string;
+        name: string;
+        price: number;
+        quantity: number;
+        size: string;
+      }[] = [];
+
+      for (const productId in cartItems) {
+        const sizeQuantities = cartItems[productId];
         if (!sizeQuantities) continue;
-        for (const item in sizeQuantities) {
-          const qty = sizeQuantities[item];
+
+        for (const size in sizeQuantities) {
+          const qty = sizeQuantities[size];
           if (qty !== undefined && qty > 0) {
-            const itemInfo = structuredClone(products.find((product) => product._id === items));
-            if (itemInfo) {
-              itemInfo.sizes = [item as "S" | "M" | "L" | "XL" | "XXL" | "XXXL"];
-              itemInfo.quantity = qty;
-              orderItem.push(itemInfo);
+            const product = products.find((p) => p._id === productId);
+            if (product) {
+              orderItem.push({
+                productId: product._id,
+                name: product.name,
+                price: product.price,
+                quantity: qty,
+                size,
+              });
             }
           }
         }

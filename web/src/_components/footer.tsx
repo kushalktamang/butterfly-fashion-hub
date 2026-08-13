@@ -29,7 +29,10 @@ const FooterSection = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-[#f268bd] text-cream">
+                <a
+                  href="https://www.instagram.com/butterflyfashion.hub/"
+                  className="hover:text-[#f268bd] text-cream"
+                >
                   <TbBrandInstagram className="h-8 w-8" />
                 </a>
               </li>

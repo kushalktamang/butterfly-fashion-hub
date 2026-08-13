@@ -3,8 +3,8 @@ import { Search, ShoppingCart } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useState } from "react";
 import { assets } from "../assets/assets";
-import MobileMenu from "./mobile-menu";
 import { useShopContext } from "../hooks/use-shop-context";
+import MobileMenuAnimated from "./mobile-menu-animated";
 
 export default function Navbar() {
   const { getCartCount, setShowSearch } = useShopContext();
@@ -105,7 +105,8 @@ export default function Navbar() {
             )}
           </NavLink>
 
-          <MobileMenu />
+          {/*<MobileMenu />*/}
+          <MobileMenuAnimated />
         </div>
       </nav>
     </motion.div>
